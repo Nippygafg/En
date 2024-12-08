@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enigma do Ritual</title>
+    <title>Enigma</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="enigma-container">
-        <div id="inicio">
-            <h1>Bem-vindo ao Enigma do Ritual</h1>
-            <p>Digite a palavra para começar:</p>
-            <input type="text" id="palavra" placeholder="Digite aqui" />
-            <button onclick="iniciarEnigma()">Iniciar Enigma</button>
-        </div>
 
-        <div id="resultado" class="hidden">
-            <h2>Resolva o enigma!</h2>
-            <p>Dica: +3</p>
-            <input type="text" id="resposta" placeholder="Resposta" />
-            <button onclick="verificarResposta()">Submeter</button>
-        </div>
+    <div id="inicio">
+        <h1>Bem-vindo ao Enigma</h1>
+        <input type="text" id="palavra" placeholder="Digite a palavra mágica">
+        <button onclick="iniciarEnigma()">Iniciar</button>
+    </div>
 
-        <div id="ritual" class="hidden">
-            <h2>Você descobriu o ritual!</h2>
-            <img id="imagem-ritual" src="ritual-simbolo.png" alt="Símbolo do Ritual" class="hidden">
-            <button id="btnAprenderRitual" onclick="aprenderRitual()">Aprender Ritual</button>
-        </div>
+    <div id="resultado" class="hidden">
+        <h1>Resolva o enigma</h1>
+        <p>Qual é a palavra secreta?</p>
+        <input type="text" id="resposta" placeholder="Resposta">
+        <button onclick="verificarResposta()">Verificar</button>
+    </div>
+
+    <div id="ritual" class="hidden">
+        <h1>Você encontrou o símbolo do ritual!</h1>
+        <button onclick="aprenderRitual()">Aprender Ritual</button>
     </div>
 
     <script src="script.js"></script>
