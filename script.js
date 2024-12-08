@@ -1,6 +1,8 @@
 function iniciarEnigma() {
-    var palavra = document.getElementById('palavra').value.toLowerCase();
-    console.log(palavra);  // Debug: Verifique se a palavra está sendo capturada corretamente
+    var palavraInput = document.getElementById('palavra');
+    if (!palavraInput) return; // Verificação de segurança
+
+    var palavra = palavraInput.value.toLowerCase();
     if (palavra === 'doom') {
         document.getElementById('inicio').classList.add('hidden');
         document.getElementById('resultado').classList.remove('hidden');
@@ -10,7 +12,10 @@ function iniciarEnigma() {
 }
 
 function verificarResposta() {
-    var resposta = document.getElementById('resposta').value.toLowerCase();
+    var respostaInput = document.getElementById('resposta');
+    if (!respostaInput) return; // Verificação de segurança
+
+    var resposta = respostaInput.value.toLowerCase();
     if (resposta === 'maldição') {
         document.getElementById('resultado').classList.add('hidden');
         document.getElementById('ritual').classList.remove('hidden');
@@ -20,14 +25,16 @@ function verificarResposta() {
 }
 
 function aprenderRitual() {
-    // Efeitos de luz e distorção
     var container = document.getElementById('ritual');
+    if (!container) return; // Verificação de segurança
+
+    // Aplicar efeitos de transformação
     container.style.transition = "all 1s ease-in-out";
     container.style.transform = "scale(1.1)";
     container.style.filter = "blur(3px)";
     container.style.backgroundColor = "rgba(0, 255, 0, 0.1)";
-    
-    // Mostrar efeito de luz (faixa de luz)
+
+    // Criar efeito de luz
     var efeitoLuz = document.createElement('div');
     efeitoLuz.style.position = "absolute";
     efeitoLuz.style.top = "0";
@@ -39,16 +46,15 @@ function aprenderRitual() {
     efeitoLuz.style.animation = "fadeOutLight 3s forwards";
     container.appendChild(efeitoLuz);
 
-    // Após 3 segundos, fechar o site
-    setTimeout(function() {
-        window.close();
+    // Remover o efeito após a animação
+    setTimeout(() => {
+        efeitoLuz.remove();
     }, 3000);
-}
 
-// Efeito de luz
-@keyframes fadeOutLight {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+    // Mensagem final
+    setTimeout(() => {
+        alert("Você aprendeu o ritual!");
+    }, 3000);
 }
 
 
