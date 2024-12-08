@@ -1,5 +1,6 @@
 function iniciarEnigma() {
     var palavra = document.getElementById('palavra').value.toLowerCase();
+    console.log(palavra);  // Debug: Verifique se a palavra está sendo capturada corretamente
     if (palavra === 'doom') {
         document.getElementById('inicio').classList.add('hidden');
         document.getElementById('resultado').classList.remove('hidden');
@@ -49,4 +50,5 @@ function aprenderRitual() {
     0% { opacity: 1; }
     100% { opacity: 0; }
 }
+
 
