@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martírio</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enigma - Ritual</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Martírio</h1>
-        <p>Digite a palavra para começar o enigma.</p>
 
-        <div id="initialStep">
-            <input type="text" id="initialInput" placeholder="Digite a palavra">
-            <button onclick="startEnigma()">Iniciar Enigma</button>
-        </div>
-
-        <div id="cipher" style="display: none;">
-            <p>Palavra criptografada: <strong>jxiafçãl</strong></p>
-            <p>Dica: +3</p>
-            <input type="text" id="answer" placeholder="Digite sua resposta">
-            <button onclick="checkAnswer()">Responder</button>
-        </div>
-
-        <div id="response"></div>
+  <div class="container">
+    <h1>Resolva o Enigma para aprender o Ritual</h1>
+    
+    <!-- Enigma -->
+    <div class="enigma">
+      <p>Enigma: O que é invisível e afeta tudo ao seu redor?</p>
+      <input type="text" id="answer-input" placeholder="Digite sua resposta aqui" autofocus>
+      <button id="submit-btn">Submeter</button>
+      <p id="hint" class="hidden">Dica: Não é físico, mas tem um grande poder.</p>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Quando o enigma for resolvido -->
+    <div id="ritual-container" class="hidden">
+      <div class="image-container">
+        <img id="ritual-image" src="ritual-symbol.jpg" alt="Símbolo do Ritual">
+      </div>
+      <button id="learn-ritual-btn">Aprender o Ritual</button>
+    </div>
+
+    <!-- Mensagem após aprender o ritual -->
+    <div id="ritual-learned" class="hidden">
+      <h2>Você agora conhece o ritual!</h2>
+      <p>O poder do ritual foi absorvido, use-o com sabedoria.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
