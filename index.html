@@ -8,25 +8,27 @@
 </head>
 <body>
 
-    <div id="inicio">
-        <h1>Bem-vindo ao Enigma</h1>
-        <input type="text" id="palavra" placeholder="Digite a palavra mágica">
-        <button onclick="iniciarEnigma()">Iniciar</button>
-    </div>
+    <!-- Botão para iniciar o enigma -->
+    <button id="iniciarEnigmaBtn">Iniciar Enigma</button>
 
-    <div id="resultado" class="hidden">
-        <h1>Resolva o enigma</h1>
-        <p>Qual é a palavra secreta?</p>
-        <input type="text" id="resposta" placeholder="Resposta">
-        <button onclick="verificarResposta()">Verificar</button>
-    </div>
+    <!-- O conteúdo do enigma vai aparecer aqui -->
+    <div id="conteudoEnigma" style="display:none; text-align: center; margin-top: 20px;">
+        <!-- Espaço para o texto inicial do enigma -->
+        <p id="textoEnigma">Insira aqui o texto que explica o enigma inicial.</p>
 
-    <div id="ritual" class="hidden">
-        <h1>Você encontrou o símbolo do ritual!</h1>
-        <button onclick="aprenderRitual()">Aprender Ritual</button>
+        <!-- Campo para resposta -->
+        <input type="text" id="respostaEnigma" placeholder="Digite sua resposta aqui">
+        <button id="verificarRespostaBtn">Enviar</button>
+
+        <!-- Espaço onde o símbolo do ritual aparecerá -->
+        <div id="resultadoEnigma" style="display:none; margin-top: 20px;">
+            <img id="imagemRitual" src="" alt="Símbolo do Ritual" style="max-width: 300px;">
+            <button id="aprenderRitualBtn" style="margin-top: 20px;">Aprender Ritual</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
 
