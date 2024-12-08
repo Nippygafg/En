@@ -1,39 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enigma - Ritual</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enigma do Ritual</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="enigma-container">
+        <div id="inicio">
+            <h1>Bem-vindo ao Enigma do Ritual</h1>
+            <p>Digite a palavra para começar:</p>
+            <input type="text" id="palavra" placeholder="Digite aqui" />
+            <button onclick="iniciarEnigma()">Iniciar Enigma</button>
+        </div>
 
-  <div class="container">
-    <h1>Resolva o Enigma para aprender o Ritual</h1>
-    
-    <!-- Enigma -->
-    <div class="enigma">
-      <p>Enigma: O que é invisível e afeta tudo ao seu redor?</p>
-      <input type="text" id="answer-input" placeholder="Digite sua resposta aqui" autofocus>
-      <button id="submit-btn">Submeter</button>
-      <p id="hint" class="hidden">Dica: Não é físico, mas tem um grande poder.</p>
+        <div id="resultado" class="hidden">
+            <h2>Resolva o enigma!</h2>
+            <p>Cifra de César: Dica: +3</p>
+            <input type="text" id="resposta" placeholder="Resposta" />
+            <button onclick="verificarResposta()">Submeter</button>
+        </div>
+
+        <div id="ritual" class="hidden">
+            <h2>Você descobriu o ritual!</h2>
+            <img id="imagem-ritual" src="ritual-simbolo.png" alt="Símbolo do Ritual" class="hidden">
+            <button id="btnAprenderRitual" onclick="aprenderRitual()">Aprender Ritual</button>
+        </div>
     </div>
 
-    <!-- Quando o enigma for resolvido -->
-    <div id="ritual-container" class="hidden">
-      <div class="image-container">
-        <img id="ritual-image" src="ritual-symbol.jpg" alt="Símbolo do Ritual">
-      </div>
-      <button id="learn-ritual-btn">Aprender o Ritual</button>
-    </div>
-
-    <!-- Mensagem após aprender o ritual -->
-    <div id="ritual-learned" class="hidden">
-      <h2>Você agora conhece o ritual!</h2>
-      <p>O poder do ritual foi absorvido, use-o com sabedoria.</p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
