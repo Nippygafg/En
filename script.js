@@ -1,123 +1,68 @@
-/* Resetando o estilo padrão */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// Pegando os elementos da página
+const answerInput = document.getElementById('answer-input');
+const submitBtn = document.getElementById('submit-btn');
+const hint = document.getElementById('hint');
+const ritualContainer = document.getElementById('ritual-container');
+const learnRitualBtn = document.getElementById('learn-ritual-btn');
+const ritualLearnedMessage = document.getElementById('ritual-learned');
+const body = document.body;
 
-/* Corpo da página com fundo preto e texto verde */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: black;
-  color: #00FF00; /* Verde neon */
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  transition: background-color 0.3s ease;
-}
+// Resposta correta do enigma
+const correctAnswer = 'ar';
 
-/* Efeitos no fundo quando o ritual é aprendido */
-body.ritual-active {
-  background-color: #1a1a1a;
-  animation: glowEffect 1.5s infinite alternate;
-}
-
-/* Animação do fundo para criar um brilho */
-@keyframes glowEffect {
-  0% {
-    background-color: #333;
+// Enigmas diferentes, baseados no código que o jogador digitar
+const enigmas = {
+  'doom': {
+    prompt: 'O que é invisível e afeta tudo ao seu redor?',
+    correctAnswer: 'ar',
+    ritualImage: 'doom-ritual.jpg',
+    ritualMessage: 'Você agora conhece o Ritual do Doom. Use com sabedoria!'
+  },
+  'maldição': {
+    prompt: 'A maldição é invisível, mas pode destruir um reino. O que é?',
+    correctAnswer: 'sombra',
+    ritualImage: 'maldicao-ritual.jpg',
+    ritualMessage: 'Você agora conhece o Ritual da Maldição. Cuidado ao usá-lo!'
   }
-  100% {
-    background-color: #111;
+};
+
+// Função para mudar o enigma baseado no código fornecido
+function setEnigma(code) {
+  if (enigmas[code]) {
+    const enigma = enigmas[code];
+    document.querySelector('h1').textContent = enigma.prompt;
+    return enigma;
   }
+  return null;
 }
 
-.container {
-  text-align: center;
-  padding: 30px;
-}
+// Inicialização - Definir o enigma com base no código
+let currentEnigma = setEnigma('doom');  // Mude 'doom' para 'maldição' para outro enigma
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-shadow: 0 0 10px #00FF00, 0 0 20px #00FF00;
-}
+submitBtn.addEventListener('click', () => {
+  // Verifica se a resposta está correta
+  if (answerInput.value.trim().toLowerCase() === currentEnigma.correctAnswer) {
+    // Exibe o próximo conteúdo - o ritual
+    ritualContainer.classList.remove('hidden');
+    document.getElementById('ritual-image').src = currentEnigma.ritualImage;
+  } else {
+    // Se a resposta estiver errada, mostra a dica
+    hint.classList.remove('hidden');
+  }
+});
 
-/* Estilo do enigma */
-.enigma {
-  margin-bottom: 20px;
-}
+// Função que é chamada quando o jogador clica no botão para aprender o ritual
+learnRitualBtn.addEventListener('click', () => {
+  // Exibe a mensagem de que o ritual foi aprendido
+  ritualLearnedMessage.style.display = 'block';
+  ritualLearnedMessage.querySelector('p').textContent = currentEnigma.ritualMessage;
 
-#answer-input {
-  padding: 10px;
-  font-size: 1.2rem;
-  width: 300px;
-  margin: 10px 0;
-}
+  // Ativa a animação de fundo e outros efeitos
+  body.classList.add('ritual-active');
+  
+  // Opcionalmente, muda a cor da imagem ou anima ela
+  document.getElementById('ritual-image').style.opacity = 1;
 
-button {
-  background-color: #333;
-  color: #00FF00;
-  font-size: 1.5rem;
-  padding: 15px 30px;
-  border: 2px solid #00FF00;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: #00FF00;
-  color: black;
-  border: 2px solid #333;
-}
-
-.hidden {
-  display: none;
-}
-
-.image-container {
-  margin-bottom: 20px;
-}
-
-/* Efeitos na imagem */
-#ritual-image {
-  width: 300px;
-  height: auto;
-  opacity: 0.8;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  box-shadow: 0 0 20px #00FF00;
-}
-
-#ritual-image:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
-
-#ritual-learned {
-  display: none;
-  margin-top: 30px;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #00FF00;
-}
-
-#ritual-learned h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-#ritual-learned p {
-  font-size: 1.2rem;
-}
-
-/* Estilo da dica */
-#hint {
-  margin-top: 10px;
-  color: #FF6347;
-  font-size: 1.1rem;
-}
+  // Desativa o botão depois que o ritual for aprendido
+  learnRitualBtn.style.display = 'none';
+});
