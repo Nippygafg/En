@@ -1,53 +1,51 @@
-document.getElementById("activateButton").addEventListener("click", () => {
-    const input = document.getElementById("triggerInput").value.toLowerCase();
-    const ritualEnigma = document.getElementById("ritualEnigma");
-    const puzzleEnigma = document.getElementById("puzzleEnigma");
+function startEnigma() {
+    const userInput = document.getElementById("initialInput").value.trim().toLowerCase();
+    const correctStart = "doom";
+    const initialStepDiv = document.getElementById("initialStep");
+    const cipherDiv = document.getElementById("cipher");
 
-    // Oculta todos os enigmas inicialmente
-    ritualEnigma.classList.add("hidden");
-    puzzleEnigma.classList.add("hidden");
-
-    if (input === "doom") {
-        ritualEnigma.classList.remove("hidden");
-    } else if (input === "artificie") {
-        puzzleEnigma.classList.remove("hidden");
+    if (userInput === correctStart) {
+        initialStepDiv.style.display = "none";
+        cipherDiv.style.display = "block";
     } else {
-        alert("Palavra mágica inválida!");
-    }
-});
-
-// Lógica para o aprendizado do ritual
-document.getElementById("learnRitual").addEventListener("click", () => {
-    const ritualContent = document.getElementById("ritualContent");
-    const ritualEffects = document.getElementById("ritualEffects");
-
-    ritualContent.classList.add("hidden");
-    ritualEffects.classList.remove("hidden");
-});
-
-// Lógica para o caça-palavras
-function checkAnswers() {
-    const inputs = document.querySelectorAll('.grid input');
-    let allCorrect = true;
-
-    inputs.forEach(input => {
-        const answer = input.dataset.answer;
-        if (input.value.toLowerCase() !== answer) {
-            input.style.borderColor = 'red';
-            allCorrect = false;
-        } else {
-            input.style.borderColor = 'green';
-        }
-    });
-
-    const resultDiv = document.getElementById('result');
-    if (allCorrect) {
-        resultDiv.textContent = 'Parabéns! Você completou o caça-palavras!';
-        resultDiv.style.color = 'green';
-    } else {
-        resultDiv.textContent = 'Existem erros! Verifique suas respostas.';
-        resultDiv.style.color = 'red';
+        alert("Resposta incorreta! Tente novamente.");
     }
 }
 
+function checkAnswer() {
+    const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+    const correctAnswer = "maldição";
+    const cipherDiv = document.getElementById("cipher");
+    const ritualDiv = document.getElementById("ritual");
 
+    if (userAnswer === correctAnswer) {
+        cipherDiv.style.display = "none";
+        ritualDiv.style.display = "block";
+    } else {
+        const responseDiv = document.getElementById("response");
+        responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
+    }
+}
+
+function iniciarAnimacao() {
+    const animationOverlay = document.getElementById("animationOverlay");
+
+    // Mostra a animação
+    animationOverlay.style.display = "flex";
+    animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
+
+    // Finaliza a animação e fecha o site
+    setTimeout(() => {
+        animationOverlay.innerHTML = "<p>Ritual aprendido!</p>";
+
+        // Aguarda um tempo antes de fechar o site
+        setTimeout(() => {
+            if (window.opener) {
+                // Fecha apenas se o site foi aberto por script
+                window.close();
+            } else {
+                alert("O site não pode ser fechado automaticamente. Feche a aba manualmente.");
+            }
+        }, 2000);
+    }, 3000);
+}
