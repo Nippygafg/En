@@ -1,48 +1,111 @@
 body {
-    background-color: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
+    background-color: black;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.enigma.hidden {
-    display: none;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(10, 30px);
-    gap: 5px;
-    justify-content: center;
-    margin: 20px 0;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
 }
 
 input[type="text"] {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #000;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    text-transform: uppercase;
+    background-color: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 10px;
+    margin: 10px;
+    font-size: 1rem;
+    width: 80%;
 }
 
 button {
-    background-color: #00ff00;
-    color: #121212;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+    background-color: black;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 10px;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #00cc00;
+    background-color: #00ff00;
+    color: black;
+}
+
+h1 {
+    color: #00ff00;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.ritual-imagem {
+    width: 300px;
+    height: auto;
+    margin: 20px 0;
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 30px #00ff00;
+    animation: pulsar 3s infinite ease-in-out;
+}
+
+.botao-conhecimento {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #00ff00;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.botao-conhecimento:hover {
+    background-color: #005500;
+    color: white;
+}
+
+#animationOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.7), rgba(0, 0, 0, 0.9));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00ff00;
+    font-size: 1.5rem;
+    text-align: center;
+    z-index: 1000;
+    animation: fadeOut 5s forwards;
+}
+
+@keyframes pulsar {
+    0%, 100% {
+        box-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 50px #00ff00, 0 0 70px #00ff00;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
