@@ -35,38 +35,41 @@
             <div class="grid">
                 <div class="row">
                     <input type="text" maxlength="1" data-answer="d">
-                    <input type="text" maxlength="1" data-answer="e">
-                    <input type="text" maxlength="1" data-answer="s">
-                    <input type="text" maxlength="1" data-answer="t">
-                    <input type="text" maxlength="1" data-answer="i">
-                    <input type="text" maxlength="1" data-answer="n">
-                    <input type="text" maxlength="1" data-answer="o">
-                </div>
-                <!-- Outras linhas seguem o padrão -->
-            </div>
-
-            <div class="hints">
-                <h3>Dicas:</h3>
-                <ul>
-                    <li>Todos têm, é impossível evitar: <strong>Destino</strong></li>
-                    <li>O caos é inevitável: <strong>Energia</strong></li>
-                    <li>É uma incógnita: <strong>Paranormal</strong></li>
-                    <li>A língua da cidade da luz: <strong>Francês</strong></li>
-                    <li>Aquele que escapou da ruína: <strong>Sobrevivente</strong></li>
-                    <li>Arma longa, utilizada para caça: <strong>Escopeta</strong></li>
-                    <li>O que todos que não sabem buscam: <strong>Respostas</strong></li>
-                    <li>O que mantém um disfarce?: <strong>Máscaras</strong></li>
-                    <li>Aquele que combate, um Guerreiro: <strong>Combatente</strong></li>
-                    <li>Não deveria estar lá: <strong>Invasor</strong></li>
-                    <li>O único que restou: <strong>Último</strong></li>
-                    <li>Os que são livres das correntes: <strong>Marcados</strong></li>
-                </ul>
-            </div>
-
-            <button onclick="checkAnswers()">Verificar Respostas</button>
-            <div id="result"></div>
-        </div>
+                   <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martírio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="initialStep">
+        <h1>Martírio</h1>
+        <p>Digite a palavra para começar o enigma.</p>
+        <input type="text" id="initialInput" placeholder="Digite a palavra">
+        <button onclick="startEnigma()">Iniciar Enigma</button>
     </div>
+
+    <div class="container" id="cipher" style="display: none;">
+        <p>Palavra criptografada: <strong>jxiafçãl</strong></p>
+        <p>Dica: +3</p>
+        <input type="text" id="answer" placeholder="Digite sua resposta">
+        <button onclick="checkAnswer()">Responder</button>
+        <div id="response"></div>
+    </div>
+
+    <div id="ritual" style="display: none; text-align: center;">
+        <img src="https://i.pinimg.com/originals/02/39/cb/0239cb155136cc189c20b1b46c5b128c.png" alt="Imagem do Ritual" class="ritual-imagem">
+        <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
+    </div>
+
+    <div id="animationOverlay" style="display: none;"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
 
     <script src="script.js"></script>
 </body>
