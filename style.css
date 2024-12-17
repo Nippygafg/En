@@ -49,28 +49,13 @@ p {
     font-size: 1.2rem;
 }
 
-.ritual-imagem {
+.enigma-imagem {
     width: 300px;
     height: auto;
     margin: 20px 0;
     border: 2px solid #00ff00;
     box-shadow: 0 0 30px #00ff00;
     animation: pulsar 3s infinite ease-in-out;
-}
-
-.botao-conhecimento {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border: none;
-    background-color: #00ff00;
-    color: black;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-.botao-conhecimento:hover {
-    background-color: #005500;
-    color: white;
 }
 
 #animationOverlay {
@@ -106,6 +91,10 @@ p {
         opacity: 1;
     }
     100% {
+        opacity: 0;
+    }
+}
+
         opacity: 0;
     }
 }
