@@ -1,18 +1,17 @@
 function startEnigma() {
     const userInput = document.getElementById("initialInput").value.trim().toLowerCase();
-    const correctStart = "doom";
-    const correctStart2 = "artificie";  // Nova palavra-chave para o segundo enigma
+    const correctStartDoom = "doom";
+    const correctStartArtificie = "artificie";
     const initialStepDiv = document.getElementById("initialStep");
     const cipherDiv = document.getElementById("cipher");
+    const artificieEnigmaDiv = document.getElementById("artificieEnigma");
 
-    if (userInput === correctStart) {
+    if (userInput === correctStartDoom) {
         initialStepDiv.style.display = "none";
         cipherDiv.style.display = "block";
-    } else if (userInput === correctStart2) {
-        // Novo enigma: Artificie
+    } else if (userInput === correctStartArtificie) {
         initialStepDiv.style.display = "none";
-        cipherDiv.style.display = "block";
-        document.querySelector("#cipher p").innerHTML = "Digite a resposta do enigma de 'Artificie'";
+        artificieEnigmaDiv.style.display = "block";
     } else {
         alert("Resposta incorreta! Tente novamente.");
     }
@@ -20,28 +19,54 @@ function startEnigma() {
 
 function checkAnswer() {
     const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
-    const correctAnswer = "maldição"; // Resposta do enigma do Doom
-    const correctAnswer2 = "criador"; // Resposta do enigma do Artificie
+    const correctAnswer = "maldição";
     const cipherDiv = document.getElementById("cipher");
-    const imageDiv = document.getElementById("imageDiv");
-    const ritualDiv = document.getElementById("ritualDiv");
+    const ritualDiv = document.getElementById("ritual");
 
     if (userAnswer === correctAnswer) {
         cipherDiv.style.display = "none";
-        ritualDiv.style.display = "block";  // Exibe o ritual e o botão "Aprender Ritual" para o Doom
-    } else if (userAnswer === correctAnswer2) {
-        cipherDiv.style.display = "none";
-        imageDiv.style.display = "block";
-        // Caso a resposta seja correta para o enigma do Artificie
-        document.getElementById("imageEnigma").src = "link_da_imagem_do_enigma_artificie.jpg";  // Adicione o link da imagem aqui
+        ritualDiv.style.display = "block";
     } else {
         const responseDiv = document.getElementById("response");
         responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
     }
 }
 
-function learnRitual() {
-    alert("Você aprendeu o ritual!");
-    // Aqui você pode adicionar qualquer funcionalidade extra após o ritual ser aprendido
+function checkArtificieAnswer() {
+    const userAnswer = document.getElementById("artificieAnswer").value.trim().toLowerCase();
+    const correctAnswer = "departamento";
+    const artificieEnigmaDiv = document.getElementById("artificieEnigma");
+    const artificieRespostaDiv = document.getElementById("artificieResposta");
+
+    if (userAnswer === correctAnswer) {
+        artificieEnigmaDiv.style.display = "none";
+        artificieRespostaDiv.style.display = "block";
+    } else {
+        const responseDiv = document.getElementById("artificieResponse");
+        responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
+    }
+}
+
+function iniciarAnimacao() {
+    const animationOverlay = document.getElementById("animationOverlay");
+
+    // Mostra a animação
+    animationOverlay.style.display = "flex";
+    animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
+
+    // Finaliza a animação e fecha o site
+    setTimeout(() => {
+        animationOverlay.innerHTML = "<p>Ritual aprendido!</p>";
+
+        // Aguarda um tempo antes de fechar o site
+        setTimeout(() => {
+            if (window.opener) {
+                // Fecha apenas se o site foi aberto por script
+                window.close();
+            } else {
+                alert("O site não pode ser fechado automaticamente. Feche a aba manualmente.");
+            }
+        }, 2000);
+    }, 3000);
 }
 
