@@ -22,22 +22,9 @@
         <div id="response"></div>
     </div>
 
-    <div id="ritual" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/originals/0d/b7/f9/0db7f9c6cf991c5b6f7a5eecf6bf6c79.jpg" alt="Imagem do Ritual" class="ritual-imagem">
-        <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
-    </div>
-
-    <div class="container" id="cipher2" style="display: none;">
-        <p><strong>szpjvèht</strong></p>
-        <p>Dica: +2</p>
-        <input type="text" id="answer2" placeholder="Digite sua resposta">
-        <button onclick="checkAnswer2()">Responder</button>
-        <div id="response2"></div>
-    </div>
-
-    <div id="ritual2" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/originals/a1/68/27/a168272b5953a99e60a7303b13f3420e.png" alt="Imagem do Ritual 2" class="ritual-imagem">
-        <button class="botao-conhecimento" onclick="iniciarAnimacao2()">Aprender Ritual</button>
+    <div id="imageDiv" style="display: none; text-align: center;">
+        <!-- Imagem que será mostrada após a resposta correta do segundo enigma -->
+        <img id="imageEnigma" src="" alt="Imagem do Enigma" class="enigma-imagem">
     </div>
 
     <div id="animationOverlay" style="display: none;"></div>
