@@ -14,25 +14,28 @@
         <button onclick="startEnigma()">Iniciar Enigma</button>
     </div>
 
-    <!-- Enigma 1: Doom -->
     <div class="container" id="cipher" style="display: none;">
         <p><strong>jxiafçãl</strong></p>
         <p>Dica: +3</p>
         <input type="text" id="answer" placeholder="Digite sua resposta">
         <button onclick="checkAnswer()">Responder</button>
         <div id="response"></div>
-
-        <!-- Ritual e Botão "Aprender Ritual" para o primeiro enigma -->
-        <div id="ritualDiv" style="display: none;">
-            <img id="ritualImage" src="link_da_imagem_do_ritual.jpg" alt="Ritual">
-            <button id="learnRitualButton" onclick="learnRitual()">Aprender Ritual</button>
-        </div>
     </div>
 
-    <!-- Enigma 2: Artificie -->
-    <div id="imageDiv" style="display: none; text-align: center;">
-        <!-- Imagem que será mostrada após a resposta correta do segundo enigma -->
-        <img id="imageEnigma" src="" alt="Imagem do Enigma" class="enigma-imagem">
+    <div id="ritual" style="display: none; text-align: center;">
+        <img src="https://i.pinimg.com/originals/02/39/cb/0239cb155136cc189c20b1b46c5b128c.png" alt="Imagem do Ritual" class="ritual-imagem">
+        <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
+    </div>
+
+    <div id="artificieEnigma" style="display: none; text-align: center;">
+        <img src="YOUR_IMAGE_URL" alt="Enigma Artificie" class="artificie-enigma-imagem">
+        <input type="text" id="artificieAnswer" placeholder="Digite sua resposta">
+        <button onclick="checkArtificieAnswer()">Responder</button>
+        <div id="artificieResponse"></div>
+    </div>
+
+    <div id="artificieResposta" style="display: none; text-align: center;">
+        <img src="YOUR_IMAGE_URL" alt="Resposta Artificie" class="artificie-resposta-imagem">
     </div>
 
     <div id="animationOverlay" style="display: none;"></div>
@@ -40,3 +43,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
