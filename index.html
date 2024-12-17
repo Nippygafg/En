@@ -14,14 +14,22 @@
         <button onclick="startEnigma()">Iniciar Enigma</button>
     </div>
 
+    <!-- Enigma 1: Doom -->
     <div class="container" id="cipher" style="display: none;">
         <p><strong>jxiafçãl</strong></p>
         <p>Dica: +3</p>
         <input type="text" id="answer" placeholder="Digite sua resposta">
         <button onclick="checkAnswer()">Responder</button>
         <div id="response"></div>
+
+        <!-- Ritual e Botão "Aprender Ritual" para o primeiro enigma -->
+        <div id="ritualDiv" style="display: none;">
+            <img id="ritualImage" src="link_da_imagem_do_ritual.jpg" alt="Ritual">
+            <button id="learnRitualButton" onclick="learnRitual()">Aprender Ritual</button>
+        </div>
     </div>
 
+    <!-- Enigma 2: Artificie -->
     <div id="imageDiv" style="display: none; text-align: center;">
         <!-- Imagem que será mostrada após a resposta correta do segundo enigma -->
         <img id="imageEnigma" src="" alt="Imagem do Enigma" class="enigma-imagem">
