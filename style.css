@@ -79,14 +79,24 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    background: black; /* Fundo preto */
+    background: radial-gradient(circle, rgba(0, 255, 0, 0.7), rgba(0, 0, 0, 0.9)); /* Fundo original */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: red; /* Texto vermelho */
-    font-size: 2rem;
+    color: #00ff00; /* Texto verde neon */
+    font-size: 1.5rem;
     text-align: center;
     z-index: 1000;
+    animation: fadeOut 5s forwards; /* Animação original */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
 @keyframes pulsar {
