@@ -10,27 +10,17 @@
     <div class="container" id="initialStep">
         <h1>Martírio</h1>
         <input type="text" id="initialInput" placeholder="Digite os sinais">
-        <button onclick="startEnigma()">Iniciar Enigma</button>
+        <button onclick="startEnigma()"></button>
     </div>
 
-    <!-- Nível 1 -->
-    <div class="container" id="extirparStep" style="display: none;">
-        <p>Digite "Extirpar" para avançar para o próximo nível.</p>
-        <input type="text" id="extirparInput" placeholder="Digite sua resposta">
-        <button onclick="checkExtirparAnswer()">Responder</button>
-        <div id="extirparResponse"></div>
+    <div class="container" id="cipher" style="display: none;">
+        <p><strong>jxiafçãl</strong></p>
+        <p>+3</p>
+        <input type="text" id="answer" placeholder="Digite sua resposta">
+        <button onclick="checkAnswer()">Responder</button>
+        <div id="response"></div>
     </div>
 
-    <!-- Nível 2 -->
-    <div class="container" id="assassinaStep" style="display: none;">
-        <p>Digite "assassina" para avançar.</p>
-        <img src="" alt="Imagem Nível 2" id="imageLevel2">
-        <input type="text" id="assassinaInput" placeholder="Digite sua resposta">
-        <button onclick="checkAssassinaAnswer()">Responder</button>
-        <div id="assassinaResponse"></div>
-    </div>
-
-    <!-- Nível 3 -->
     <div id="ritual" style="display: none; text-align: center;">
         <img src="https://i.pinimg.com/originals/0d/b7/f9/0db7f9c6cf991c5b6f7a5eecf6bf6c79.jpg" alt="Imagem do Ritual" class="ritual-imagem">
         <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
