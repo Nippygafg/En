@@ -3,15 +3,12 @@ function startEnigma() {
     const correctStartDoom = "doom";
     const correctStartArtificie = "artificie";
     const initialStepDiv = document.getElementById("initialStep");
-    const extirparStepDiv = document.getElementById("extirparStep");
+    const cipherDiv = document.getElementById("cipher");
     const artificieEnigmaDiv = document.getElementById("artificieEnigma");
 
-    if (userInput === "extirpar") {
+    if (userInput === correctStartDoom) {
         initialStepDiv.style.display = "none";
-        extirparStepDiv.style.display = "block";
-    } else if (userInput === correctStartDoom) {
-        initialStepDiv.style.display = "none";
-        artificieEnigmaDiv.style.display = "block";
+        cipherDiv.style.display = "block";
     } else if (userInput === correctStartArtificie) {
         initialStepDiv.style.display = "none";
         artificieEnigmaDiv.style.display = "block";
@@ -20,32 +17,32 @@ function startEnigma() {
     }
 }
 
-function checkExtirparAnswer() {
-    const userAnswer = document.getElementById("extirparInput").value.trim().toLowerCase();
-    const correctAnswer = "extirpar";
-    const extirparStepDiv = document.getElementById("extirparStep");
-    const assassinaStepDiv = document.getElementById("assassinaStep");
+function checkAnswer() {
+    const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+    const correctAnswer = "maldição";
+    const cipherDiv = document.getElementById("cipher");
+    const ritualDiv = document.getElementById("ritual");
 
     if (userAnswer === correctAnswer) {
-        extirparStepDiv.style.display = "none";
-        assassinaStepDiv.style.display = "block";
+        cipherDiv.style.display = "none";
+        ritualDiv.style.display = "block";
     } else {
-        const responseDiv = document.getElementById("extirparResponse");
+        const responseDiv = document.getElementById("response");
         responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
     }
 }
 
-function checkAssassinaAnswer() {
-    const userAnswer = document.getElementById("assassinaInput").value.trim().toLowerCase();
-    const correctAnswer = "assassina";
-    const assassinaStepDiv = document.getElementById("assassinaStep");
-    const ritualDiv = document.getElementById("ritual");
+function checkArtificieAnswer() {
+    const userAnswer = document.getElementById("artificieAnswer").value.trim().toLowerCase();
+    const correctAnswer = "departamento";
+    const artificieEnigmaDiv = document.getElementById("artificieEnigma");
+    const artificieRespostaDiv = document.getElementById("artificieResposta");
 
     if (userAnswer === correctAnswer) {
-        assassinaStepDiv.style.display = "none";
-        ritualDiv.style.display = "block";
+        artificieEnigmaDiv.style.display = "none";
+        artificieRespostaDiv.style.display = "block";
     } else {
-        const responseDiv = document.getElementById("assassinaResponse");
+        const responseDiv = document.getElementById("artificieResponse");
         responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
     }
 }
@@ -71,19 +68,4 @@ function iniciarAnimacao() {
             }
         }, 2000);
     }, 3000);
-}
-
-function checkArtificieAnswer() {
-    const userAnswer = document.getElementById("artificieAnswer").value.trim().toLowerCase();
-    const correctAnswer = "departamento";
-    const artificieEnigmaDiv = document.getElementById("artificieEnigma");
-    const artificieRespostaDiv = document.getElementById("artificieResposta");
-
-    if (userAnswer === correctAnswer) {
-        artificieEnigmaDiv.style.display = "none";
-        artificieRespostaDiv.style.display = "block";
-    } else {
-        const responseDiv = document.getElementById("artificieResponse");
-        responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
-    }
 }
