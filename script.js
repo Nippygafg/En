@@ -3,10 +3,12 @@ function startEnigma() {
     const correctStartDoom = "doom";
     const correctStartArtificie = "artificie";
     const correctStartExtirpar = "extirpar";
+    const correctStartMentiras = "mentiras";
     const initialStepDiv = document.getElementById("initialStep");
     const cipherDiv = document.getElementById("cipher");
     const artificieEnigmaDiv = document.getElementById("artificieEnigma");
     const extirparLevelDiv = document.getElementById("extirparLevel");
+    const mentirasEnigmaDiv = document.getElementById("mentirasEnigma");
 
     if (userInput === correctStartDoom) {
         initialStepDiv.style.display = "none";
@@ -17,6 +19,9 @@ function startEnigma() {
     } else if (userInput === correctStartExtirpar) {
         initialStepDiv.style.display = "none";
         extirparLevelDiv.style.display = "block";
+    } else if (userInput === correctStartMentiras) {
+        initialStepDiv.style.display = "none";
+        mentirasEnigmaDiv.style.display = "block";
     } else {
         alert("Resposta incorreta! Tente novamente.");
     }
@@ -67,6 +72,22 @@ function checkExtirparAnswer() {
     }
 }
 
+// Novo Enigma (Mentiras)
+function checkMentirasAnswer() {
+    const userAnswer = document.getElementById("mentirasAnswer").value.trim().toLowerCase();
+    const correctAnswer = "aline";
+    const mentirasEnigmaDiv = document.getElementById("mentirasEnigma");
+    const mentirasFinalDiv = document.getElementById("mentirasFinal");
+
+    if (userAnswer === correctAnswer) {
+        mentirasEnigmaDiv.style.display = "none";
+        mentirasFinalDiv.style.display = "block";
+    } else {
+        const responseDiv = document.getElementById("mentirasResponse");
+        responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
+    }
+}
+
 function iniciarAnimacao() {
     const animationOverlay = document.getElementById("animationOverlay");
 
@@ -93,22 +114,14 @@ function iniciarAnimacao() {
 function finalAnimation() {
     const animationOverlay = document.getElementById("animationOverlay");
 
-    // Mostra a animação
+    // Mostra a animação de "Absorvendo conhecimento..."
     animationOverlay.style.display = "flex";
+    animationOverlay.style.backgroundColor = "radial-gradient(circle, rgba(0, 255, 0, 0.7), rgba(0, 0, 0, 0.9))"; // Fundo original
     animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
 
-    // Finaliza a animação e exibe a mensagem
+    // Após 3 segundos, muda para o texto "Esconder dos Olhos"
     setTimeout(() => {
-        animationOverlay.innerHTML = "<p style='color: red;'>Esconder dos Olhos</p>";
-
-        // Aguarda um tempo antes de fechar o site
-        setTimeout(() => {
-            if (window.opener) {
-                // Fecha apenas se o site foi aberto por script
-                window.close();
-            } else {
-                alert("O site não pode ser fechado automaticamente. Feche a aba manualmente.");
-            }
-        }, 2000);
+        animationOverlay.style.backgroundColor = "black"; // Fundo preto
+        animationOverlay.innerHTML = "<p style='color: red; font-size: 2rem; animation: pulsar 2s infinite;'>Esconder dos Olhos</p>";
     }, 3000);
 }
