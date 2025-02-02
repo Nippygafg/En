@@ -54,18 +54,32 @@
         <p style="color: #ff0000; margin-top: 10px;">+5% de Exposição Paranormal</p>
     </div>
 
-    <!-- Novo Segundo Nível -->
+    <!-- Segundo Nível (Extirpar) -->
     <div id="extirparLevel" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/736x/cb/19/ee/cb19ee6b26ce25559a1f54cb374c2fd5.jpg" alt="Imagem do Segundo Nível" id="extirparImage" class="ritual-imagem">
+        <img src="" alt="Imagem do Segundo Nível" id="extirparImage" class="ritual-imagem">
         <input type="text" id="extirparInput" placeholder="Digite sua resposta">
         <button onclick="checkExtirparAnswer()">Responder</button>
         <div id="extirparResponse"></div>
     </div>
 
-    <!-- Novo Terceiro Nível -->
+    <!-- Terceiro Nível (Final) -->
     <div id="finalLevel" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/736x/b0/f2/d0/b0f2d06078fe3fde5f0ae2d095b701e1.jpg" alt="Imagem do Terceiro Nível" id="finalImage" class="ritual-imagem">
+        <img src="" alt="Imagem do Terceiro Nível" id="finalImage" class="ritual-imagem">
         <button class="botao-conhecimento" onclick="finalAnimation()">Aprender Ritual</button>
+    </div>
+
+    <!-- Novo Enigma (Mentiras) -->
+    <div id="mentirasEnigma" style="display: none; text-align: center;">
+        <p style="color: #00ff00; font-size: 1.5rem;">Quem de vocês não é confiável?</p>
+        <input type="text" id="mentirasAnswer" placeholder="Digite sua resposta">
+        <button onclick="checkMentirasAnswer()">Responder</button>
+        <div id="mentirasResponse"></div>
+    </div>
+
+    <!-- Final do Enigma (Mentiras) -->
+    <div id="mentirasFinal" style="display: none; text-align: center;">
+        <img src="blob:https://br.pinterest.com/1ceb2746-2280-4930-926c-96feab6fa020" alt="Imagem Final do Enigma Mentiras" class="ritual-imagem">
+        <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
     </div>
 
     <div id="animationOverlay" style="display: none;"></div>
