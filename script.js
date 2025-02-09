@@ -3,12 +3,12 @@ document.addEventListener('keydown', function (e) {
     // F12
     if (e.key === 'F12') {
         e.preventDefault();
-        alert("Inspecionar elemento está desabilitado.");
+        alert("-1 DE SANIDADE PERMANENTE.");
     }
     // Ctrl+Shift+I
     if (e.ctrlKey && e.shiftKey && e.key === 'I') {
         e.preventDefault();
-        alert("Inspecionar elemento está desabilitado.");
+        alert("-1 DE SANIDADE PERMANENTE.");
     }
     // Ctrl+U
     if (e.ctrlKey && e.key === 'u') {
