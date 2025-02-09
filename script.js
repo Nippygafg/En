@@ -1,7 +1,26 @@
+// Desabilita teclas de atalho (F12, Ctrl+Shift+I, Ctrl+U)
+document.addEventListener('keydown', function (e) {
+    // F12
+    if (e.key === 'F12') {
+        e.preventDefault();
+        alert("Inspecionar elemento está desabilitado.");
+    }
+    // Ctrl+Shift+I
+    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+        e.preventDefault();
+        alert("Inspecionar elemento está desabilitado.");
+    }
+    // Ctrl+U
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        alert("-1 DE SANIDADE PERMANENTE.");
+    }
+});
+
 // Desabilita o menu de contexto (botão direito do mouse)
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
-    alert("Inspecionar elemento está desabilitado.");
+    alert("-1 DE SANIDADE PERMANENTE.");
 });
 
 function startEnigma() {
