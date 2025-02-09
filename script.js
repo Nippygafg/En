@@ -1,4 +1,10 @@
-// Desabilita teclas de atalho (F12, Ctrl+Shift+I, Ctrl+U)
+// Bloqueia o menu de contexto (botão direito do mouse)
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    alert("-1 DE SANIDADE PERMANENTE.");
+});
+
+// Bloqueia teclas de atalho (F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C)
 document.addEventListener('keydown', function (e) {
     // F12
     if (e.key === 'F12') {
@@ -15,12 +21,11 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
         alert("-1 DE SANIDADE PERMANENTE.");
     }
-});
-
-// Desabilita o menu de contexto (botão direito do mouse)
-document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-    alert("-1 DE SANIDADE PERMANENTE.");
+    // Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        alert("-1 DE SANIDADE PERMANENTE.");
+    }
 });
 
 function startEnigma() {
