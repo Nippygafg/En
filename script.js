@@ -1,3 +1,9 @@
+// Desabilita o menu de contexto (botão direito do mouse)
+document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+    alert("Inspecionar elemento está desabilitado.");
+});
+
 function startEnigma() {
     const userInput = document.getElementById("initialInput").value.trim().toLowerCase();
     const correctStartDoom = "doom";
