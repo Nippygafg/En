@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Tela Inicial -->
+    <!-- Tela Inicial (Atualizada) -->
     <div class="container" id="initialStep">
         <h1>Martírio</h1>
-        <input type="text" id="initialInput" placeholder="Digite os sinais">
-        <button onclick="startEnigma()">Iniciar</button>
+        <input type="text" id="initialInput" placeholder="Digite os sinais (corromper, doom, artificie, etc)">
+        <button type="button" id="startButton">Iniciar</button>
     </div>
 
     <!-- Enigma Doom -->
@@ -23,8 +23,9 @@
         <div id="response"></div>
     </div>
 
+    <!-- Ritual Doom -->
     <div id="ritual" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/originals/0d/b7/f9/0db7f9c6cf991c5b6f7a5eecf6bf6c79.jpg" alt="Imagem do Ritual" class="ritual-imagem">
+        <img src="https://i.pinimg.com/originals/0d/b7/f9/0db7f9c6cf991c5b6f7a5eecf6bf6c79.jpg" alt="Ritual Doom" class="ritual-imagem">
         <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
     </div>
 
@@ -52,6 +53,7 @@
         <div id="artificieResponse"></div>
     </div>
 
+    <!-- Resposta Artificie -->
     <div id="artificieResposta" style="display: none; text-align: center;">
         <img src="https://i.pinimg.com/736x/34/c5/9c/34c59c592b19fb7f34f7df004d90cdf9.jpg" alt="Resposta Artificie" class="artificie-resposta-imagem">
         <p style="color: #ff0000; margin-top: 10px;">+5% de Exposição Paranormal</p>
@@ -59,15 +61,15 @@
 
     <!-- Enigma Extirpar -->
     <div id="extirparLevel" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/736x/cb/19/ee/cb19ee6b26ce25559a1f54cb374c2fd5.jpg" alt="Imagem do Segundo Nível" id="extirparImage" class="ritual-imagem">
+        <img src="https://i.pinimg.com/736x/cb/19/ee/cb19ee6b26ce25559a1f54cb374c2fd5.jpg" alt="Enigma Extirpar" class="ritual-imagem">
         <input type="text" id="extirparInput" placeholder="Digite sua resposta">
         <button onclick="checkExtirparAnswer()">Responder</button>
         <div id="extirparResponse"></div>
     </div>
 
-    <!-- Enigma Final Extirpar -->
+    <!-- Resposta Extirpar -->
     <div id="finalLevel" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/736x/b0/f2/d0/b0f2d06078fe3fde5f0ae2d095b701e1.jpg" alt="Imagem do Terceiro Nível" id="finalImage" class="ritual-imagem">
+        <img src="https://i.pinimg.com/736x/b0/f2/d0/b0f2d06078fe3fde5f0ae2d095b701e1.jpg" alt="Ritual Extirpar" class="ritual-imagem">
         <button class="botao-conhecimento" onclick="finalAnimation()">Aprender Ritual</button>
     </div>
 
@@ -81,23 +83,25 @@
 
     <!-- Resposta Mentiras -->
     <div id="mentirasFinal" style="display: none; text-align: center;">
-        <img src="https://i.pinimg.com/736x/43/14/9a/43149ae6059528c227436f7c9c561bf8.jpg" alt="Imagem Final do Enigma Mentiras" class="ritual-imagem">
+        <img src="https://i.pinimg.com/736x/43/14/9a/43149ae6059528c227436f7c9c561bf8.jpg" alt="Ritual Mentiras" class="ritual-imagem">
         <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
     </div>
 
-    <!-- NOVO RITUAL CORROMPER (DIRETO) -->
+    <!-- Novo Ritual Corromper (Adicionado) -->
     <div id="ritualCorromper" style="display: none; text-align: center;">
-        <img src="https://i.imgur.com/SUA_IMAGEM.jpg" alt="Ritual da Corrupção" class="ritual-imagem">
-        <p style="color: #00ff00; font-size: 1.2rem; margin: 20px;">
-            "A corrupção é o caminho mais rápido para o poder,<br>
-            mas cada passo custa um fragmento da sua humanidade."
+        <img src="https://placeholder.com/300x400?text=Imagem+Corromper" alt="Ritual Corromper" class="ritual-imagem">
+        <p style="color: #00ff00; margin: 20px; font-size: 1.2rem;">
+            "A corrupção não é um caminho,<br>
+            é um abismo que devora tudo,<br>
+            até mesmo a luz."
         </p>
         <button class="botao-conhecimento" onclick="iniciarAnimacao()">Aprender Ritual</button>
     </div>
 
-    <!-- Animação -->
+    <!-- Animação (Mantida) -->
     <div id="animationOverlay" style="display: none;"></div>
 
+    <!-- Script (Deve ser o último elemento do body) -->
     <script src="script.js"></script>
 </body>
 </html>
