@@ -1,155 +1,111 @@
-// Bloqueia o menu de contexto (botão direito do mouse)
+// Bloqueio de inspeção
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
     alert("-1 DE SANIDADE PERMANENTE.");
 });
 
-// Bloqueia teclas de atalho (F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+C)
 document.addEventListener('keydown', function (e) {
-    // F12
-    if (e.key === 'F12') {
-        e.preventDefault();
-        alert("-1 DE SANIDADE PERMANENTE.");
-    }
-    // Ctrl+Shift+I
-    if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-        e.preventDefault();
-        alert("-1 DE SANIDADE PERMANENTE.");
-    }
-    // Ctrl+U
-    if (e.ctrlKey && e.key === 'u') {
-        e.preventDefault();
-        alert("-1 DE SANIDADE PERMANENTE.");
-    }
-    // Ctrl+Shift+C
-    if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+    if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I') {
         e.preventDefault();
         alert("-1 DE SANIDADE PERMANENTE.");
     }
 });
 
-// Objeto com todos os enigmas para organização
-const enigmasConfig = {
-    doom: {
-        target: "cipher",
-        correctAnswer: "maldição",
-        responseElement: "response"
-    },
-    artificie: {
-        target: "artificieEnigma",
-        correctAnswer: "departamento",
-        responseElement: "artificieResponse"
-    },
-    extirpar: {
-        target: "extirparLevel",
-        correctAnswer: "assassina",
-        responseElement: "extirparResponse"
-    },
-    mentiras: {
-        target: "mentirasEnigma",
-        correctAnswer: "aline",
-        responseElement: "mentirasResponse"
-    },
-    corromper: {  // Novo enigma
-        target: "corromperEnigma",
-        correctAnswer: "pureza",
-        responseElement: "corromperResponse",
-        successTarget: "corromperResposta"
-    }
-};
-
+// Função principal
 function startEnigma() {
     const userInput = document.getElementById("initialInput").value.trim().toLowerCase();
     const initialStepDiv = document.getElementById("initialStep");
 
-    if (enigmasConfig[userInput]) {
+    // Novo caso: "corromper" leva direto ao ritual
+    if (userInput === "corromper") {
         initialStepDiv.style.display = "none";
-        document.getElementById(enigmasConfig[userInput].target).style.display = "block";
-    } else {
-        alert("Resposta incorreta! Tente novamente.");
+        document.getElementById("ritualCorromper").style.display = "block";
+        return;
+    }
+    // Enigmas existentes
+    else if (userInput === "doom") {
+        initialStepDiv.style.display = "none";
+        document.getElementById("cipher").style.display = "block";
+    }
+    else if (userInput === "artificie") {
+        initialStepDiv.style.display = "none";
+        document.getElementById("artificieEnigma").style.display = "block";
+    }
+    else if (userInput === "extirpar") {
+        initialStepDiv.style.display = "none";
+        document.getElementById("extirparLevel").style.display = "block";
+    }
+    else if (userInput === "mentiras") {
+        initialStepDiv.style.display = "none";
+        document.getElementById("mentirasEnigma").style.display = "block";
+    }
+    else {
+        alert("Sinal não reconhecido. Tente novamente.");
     }
 }
 
-// Função genérica para verificar respostas
-function checkAnswer(enigmaKey, inputId, responseDivId) {
-    const userAnswer = document.getElementById(inputId).value.trim().toLowerCase();
-    const enigma = enigmasConfig[enigmaKey];
-
-    if (userAnswer === enigma.correctAnswer) {
-        document.getElementById(enigma.target).style.display = "none";
-        
-        // Verifica se tem um target específico para sucesso (como no corromper)
-        if (enigma.successTarget) {
-            document.getElementById(enigma.successTarget).style.display = "block";
-        } else {
-            // Padrão para os enigmas antigos
-            if (enigmaKey === 'doom') {
-                document.getElementById("ritual").style.display = "block";
-            } else if (enigmaKey === 'artificie') {
-                document.getElementById("artificieResposta").style.display = "block";
-            } else if (enigmaKey === 'extirpar') {
-                document.getElementById("finalLevel").style.display = "block";
-            } else if (enigmaKey === 'mentiras') {
-                document.getElementById("mentirasFinal").style.display = "block";
-            }
-        }
-    } else {
-        const responseDiv = document.getElementById(responseDivId);
-        responseDiv.innerHTML = "<p style='color: red;'>Resposta incorreta. Tente novamente!</p>";
-    }
-}
-
-// Funções específicas para cada enigma (mantidas para compatibilidade)
+// Funções dos enigmas (mantidas originais)
 function checkAnswer() {
-    checkAnswer('doom', 'answer', 'response');
+    const userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+    if (userAnswer === "maldição") {
+        document.getElementById("cipher").style.display = "none";
+        document.getElementById("ritual").style.display = "block";
+    } else {
+        document.getElementById("response").innerHTML = "<p style='color: red;'>Errado!</p>";
+    }
 }
 
 function checkArtificieAnswer() {
-    checkAnswer('artificie', 'artificieAnswer', 'artificieResponse');
+    const userAnswer = document.getElementById("artificieAnswer").value.trim().toLowerCase();
+    if (userAnswer === "departamento") {
+        document.getElementById("artificieEnigma").style.display = "none";
+        document.getElementById("artificieResposta").style.display = "block";
+    } else {
+        document.getElementById("artificieResponse").innerHTML = "<p style='color: red;'>Errado!</p>";
+    }
 }
 
 function checkExtirparAnswer() {
-    checkAnswer('extirpar', 'extirparInput', 'extirparResponse');
+    const userAnswer = document.getElementById("extirparInput").value.trim().toLowerCase();
+    if (userAnswer === "assassina") {
+        document.getElementById("extirparLevel").style.display = "none";
+        document.getElementById("finalLevel").style.display = "block";
+    } else {
+        document.getElementById("extirparResponse").innerHTML = "<p style='color: red;'>Errado!</p>";
+    }
 }
 
 function checkMentirasAnswer() {
-    checkAnswer('mentiras', 'mentirasAnswer', 'mentirasResponse');
+    const userAnswer = document.getElementById("mentirasAnswer").value.trim().toLowerCase();
+    if (userAnswer === "aline") {
+        document.getElementById("mentirasEnigma").style.display = "none";
+        document.getElementById("mentirasFinal").style.display = "block";
+    } else {
+        document.getElementById("mentirasResponse").innerHTML = "<p style='color: red;'>Errado!</p>";
+    }
 }
 
-// Nova função para o enigma Corromper
-function checkCorromperAnswer() {
-    checkAnswer('corromper', 'corromperAnswer', 'corromperResponse');
-}
-
-// Funções de animação (mantidas originais)
+// Animação (original)
 function iniciarAnimacao() {
-    const animationOverlay = document.getElementById("animationOverlay");
-
-    animationOverlay.style.display = "flex";
-    animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
+    const overlay = document.getElementById("animationOverlay");
+    overlay.style.display = "flex";
+    overlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
 
     setTimeout(() => {
-        animationOverlay.innerHTML = "<p>Ritual aprendido!</p>";
-
+        overlay.innerHTML = "<p>Ritual aprendido!</p>";
         setTimeout(() => {
-            if (window.opener) {
-                window.close();
-            } else {
-                alert("O site não pode ser fechado automaticamente. Feche a aba manualmente.");
-            }
+            window.close();
         }, 2000);
     }, 3000);
 }
 
 function finalAnimation() {
-    const animationOverlay = document.getElementById("animationOverlay");
-
-    animationOverlay.style.display = "flex";
-    animationOverlay.style.backgroundColor = "radial-gradient(circle, rgba(0, 255, 0, 0.7), rgba(0, 0, 0, 0.9))";
-    animationOverlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
+    const overlay = document.getElementById("animationOverlay");
+    overlay.style.display = "flex";
+    overlay.innerHTML = "<p>Absorvendo conhecimento...</p>";
 
     setTimeout(() => {
-        animationOverlay.style.backgroundColor = "black";
-        animationOverlay.innerHTML = "<p style='color: red; font-size: 2rem; animation: pulsar 2s infinite;'>Esconder dos Olhos</p>";
+        overlay.style.backgroundColor = "black";
+        overlay.innerHTML = "<p style='color: red;'>Esconder dos Olhos</p>";
     }, 3000);
 }
